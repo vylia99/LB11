@@ -13,17 +13,20 @@ import java.util.List;
 
 @Controller
 public class MainController {
-    private Logic logic;
-    @PostMapping("/create_list")
+
+    @RequestMapping("/create_list")
     public String reduce(
-            @RequestParam("start") double start,
-            @RequestParam("end") double end,
-            @RequestParam("step") double step,
-            @RequestParam("a") double a,
-            @RequestParam("b") double b,
-            @RequestParam("c") double c ){
-        logic.createList(start,end,step,a,b,c);
-        return "run";
+            @RequestParam  double start,
+            @RequestParam double end,
+            @RequestParam double step,
+            @RequestParam double a,
+            @RequestParam double b,
+            @RequestParam double c , Model model){
+       Logic logic = new Logic(start,end,step,a,b,c, 1.e-8);
+        List<Point> points = logic.createList(start, end, step, a, b, c);
+        model.addAttribute("logic",logic);
+        model.addAttribute("points",points);
+        return "logic";
     }
 
 }

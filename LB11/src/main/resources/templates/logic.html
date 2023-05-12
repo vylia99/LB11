@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Point</title>
+</head>
+<body>
+
+<h1 th:text="|Кількість кроків: ${logic.count()}|"></h1>
+<h1 th:text="|Max: ${logic.maxY(points)}|"></h1>
+<h1 th:text="|Min: ${logic.minY(points)}|"></h1>
+<h1 th:text="|Sum: ${logic.sumY(points)}|"></h1>
+<h1 th:text="|AverageY: ${logic.averageY(points)}|"></h1>
+
+
+</body>
+</html>
